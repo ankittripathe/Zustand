@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import zustandLogo from "./assets/zustand.png";
-import OtherComp from "./Componets/OtherComp";
+import OtherComp from "./Components/OtherComp";
 
 const App = () => {
   const [count, setCount] = useState(0);  // local state variable
