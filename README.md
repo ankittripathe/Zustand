@@ -31,7 +31,7 @@
 # 5️⃣ Import Zustand factory
 
 ```
-- const useStore = create(() => ({}));
+- const useCounterStore = create(() => ({}));
 
 - Create empty global store
 - () => ({}) → function returning object
@@ -61,16 +61,9 @@ const useCounterStore = create((set) => ({
 ```
 const useCounterStore = create((set) => ({
   count: 0,
-
-  increment: () =>
-    set((state) => ({
-      count: state.count + 1,
-    })),
-
-  decrement: () =>
-    set((state) => ({
-      count: state.count - 1,
-    })),
+  <!-- methods / actions -->
+  increment: () => set((state) => ({count: state.count + 1})),
+  decrement: () => set((state) => ({count: state.count - 1}))
 }));
 
 - set() accepts a function
@@ -110,14 +103,16 @@ function Counter() {
 
 ```
 
-1️⃣ () => {}
+# 1️⃣ () => {}
+
 const fn = () => {};
 fn is a function
 {} is treated as a function body
 Nothing is returned
 ✅ Function returning undefined
 
-2️⃣ () => ({})
+# 2️⃣ () => ({})
+
 const fn = () => ({});
 fn is still a function
 ({}) forces {} to be treated as an object

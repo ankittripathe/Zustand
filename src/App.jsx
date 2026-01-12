@@ -1,13 +1,26 @@
-import "./App.css";
-import { useState } from "react";
 import zustandLogo from "./assets/zustand.png";
 import UserComp from "./Components/UserComp";
-// import useCounterStore from "./Store/useCounterStore";
+import useCounterStore from "./Store/useCounterStore";
+import "./App.css";
+import { useEffect } from "react";
+
+const func = () => {
+  const count = useCounterStore.getState().count;
+  console.log("count =", count);
+};
 
 const App = () => {
-  const [count, setCount] = useState(0); // local state variable
+  const count = useCounterStore((state) => state.count);
+  const increment = useCounterStore((state) => state.increment);
+  const decrement = useCounterStore((state) => state.decrement);
+  const reset = useCounterStore((state) => state.reset);
+  // const { count, increment, decrement, reset } = useCounterStore();   // destructuring
 
-  // const counter = useCounterStore();
+  // calls when page mounted
+  useEffect(() => {
+    func();
+  }, []);
+
   return (
     <>
       <div>
@@ -19,8 +32,9 @@ const App = () => {
 
       <div className="card">
         <h1>Count: {count}</h1>
-        <button onClick={()=>{setCount(count+1)}}>Increment</button>
-        <button onClick={()=>{setCount(count-1)}}>Decrement</button>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
       </div>
 
       <UserComp name="Ankit Tripathi" />
