@@ -1,27 +1,29 @@
 import "./App.css";
 import { useState } from "react";
 import zustandLogo from "./assets/zustand.png";
-import OtherComp from "./Components/OtherComp";
+import UserComp from "./Components/UserComp";
+// import useCounterStore from "./Store/useCounterStore";
 
 const App = () => {
-  const [count, setCount] = useState(0);  // local state variable
+  const [count, setCount] = useState(0); // local state variable
+
+  // const counter = useCounterStore();
   return (
     <>
       <div>
         <a href="https://zustand-demo.pmnd.rs/" target="_blank">
           <img src={zustandLogo} className="logo" alt="zustand logo" />
         </a>
+        <h1>Zustand Tutorial</h1>
       </div>
-       <h1>Zustand</h1>
-     
 
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <h1>Count: {count}</h1>
+        <button onClick={()=>{setCount(count+1)}}>Increment</button>
+        <button onClick={()=>{setCount(count-1)}}>Decrement</button>
       </div>
 
-      <OtherComp name="Ankit Tripathi" />
+      <UserComp name="Ankit Tripathi" />
     </>
   );
 };
