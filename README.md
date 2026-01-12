@@ -1,7 +1,7 @@
 # 1️⃣ What is Zustand?
 
 - Lightweight global state management library for React
-- No reducers, no boilerplate, no actions file, no Provider
+- No reducers, no boilerplate
 - Uses hooks (very React-friendly)
 - Faster and simpler than Redux
 - Ideal replacement for Context API + Redux
@@ -15,23 +15,29 @@
 
 # 3️⃣ Install Zustand
 
+```
 - npm install zustand
+```
 
 # 4️⃣ Core Concept (MOST IMPORTANT)
 
+```
 - import { create } from "zustand";
 
 - create() → creates a global store
 - Returns a custom React hook;
+```
 
 # 5️⃣ Import Zustand factory
 
+```
 - const useStore = create(() => ({}));
 
-⬆ Create empty global store
-⬆ () => ({}) → function returning object
+- Create empty global store
+- () => ({}) → function returning object
+```
 
-6️⃣ Add State
+# 6️⃣ Add State
 
 ```
 const useCounterStore = create(() => ({
@@ -67,11 +73,9 @@ const useCounterStore = create((set) => ({
     })),
 }));
 
-set() accepts a function
-
-Function receives previous state
-
-Must return new object
+- set() accepts a function
+- Function receives previous state
+- Must return new object
 
 ```
 
